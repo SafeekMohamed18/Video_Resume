@@ -2,19 +2,25 @@
   0% {
     opacity: 0;
     filter: blur(18px);
-    transform: translateY(22px);
+    transform: translateY(42px) scale(0.96);
+    letter-spacing: 0.3rem;
+  }
+  45% {
+    opacity: 0.75;
+    filter: blur(6px);
   }
   100% {
     opacity: 1;
     filter: blur(0);
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+    letter-spacing: 0.18rem;
   }
 }
 
 @keyframes fadeUp {
   0% {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(24px);
   }
   100% {
     opacity: 1;
@@ -25,11 +31,11 @@
 @keyframes slideInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-36px);
+    transform: translateX(-48px) scale(0.96);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(0) scale(1);
   }
 }
 
@@ -37,7 +43,88 @@
   0% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+  50% {
+    transform: translate3d(24px, -18px, 0) scale(1.08);
+  }
   100% {
-    transform: translate3d(28px, -20px, 0) scale(1.08);
+    transform: translate3d(18px, -34px, 0) scale(1.14);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.12;
+    transform: translateX(-18%) skewX(-20deg);
+  }
+  45% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.12;
+    transform: translateX(18%) skewX(-20deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(63, 126, 245, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 26px rgba(63, 126, 245, 0.22);
+  }
+}
+
+@keyframes cinematicReveal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0) scale(0.96);
+    filter: blur(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes cinematicPopup {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0) scale(0.8) rotate(-6deg);
+    filter: blur(10px);
+  }
+  25% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0.9;
+    transform: translate3d(var(--drift, 0px), -12px, 0) scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+}
+
+@keyframes cardLift {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes spotlightSweep {
+  0% {
+    transform: translateX(-28%) skewX(-18deg);
+    opacity: 0;
+  }
+  20%, 80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(28%) skewX(-18deg);
+    opacity: 0;
   }
 }
