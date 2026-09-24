@@ -116,6 +116,16 @@ body.presentation-mode .video-stage {
   transform: scale(1);
 }
 
+.scene.scene-entering::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.72), transparent);
+  animation: sectionWipe 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 .scene-content {
   position: relative;
   z-index: 2;
@@ -248,6 +258,38 @@ body.presentation-mode .video-stage {
   width: min(1100px, 90%);
   gap: 1.5rem;
 }
+
+.hook-stack {
+  position: absolute;
+  top: 24%;
+  left: 8%;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--accent);
+  font-size: clamp(0.72rem, 1vw, 1rem);
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+}
+
+.hook-stack span {
+  opacity: 0;
+  animation: hookPhrase 3.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hook-stack span:nth-child(2) { animation-delay: 1s; }
+.hook-stack span:nth-child(3) { animation-delay: 2s; }
+
+#scene-01.scene.active .title-wrap,
+#scene-01.scene.active .tagline-block,
+#scene-01.scene.active .status-strip {
+  animation-delay: 3.05s;
+}
+
+#scene-01.scene.active .headline-main { animation-delay: 3.05s; }
+#scene-01.scene.active .headline-sub { animation-delay: 3.25s; }
+#scene-01.scene.active .tagline-block { animation-delay: 3.55s; }
+#scene-01.scene.active .status-strip span { animation-delay: 3.8s; }
 
 .line {
   height: 1px;
@@ -399,6 +441,13 @@ body.presentation-mode .video-stage {
   display: block;
 }
 
+.scene.active .profile-photo-frame img,
+.scene.active .school-brand img,
+.scene.active .shot-card img {
+  transform-origin: center;
+  animation: cameraDrift 12s ease-out both;
+}
+
 .profile-photo-frame span,
 .school-brand span,
 .shot-card span {
@@ -540,8 +589,33 @@ body.presentation-mode .video-stage {
   margin-top: 3rem;
 }
 
+.edu-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--accent), transparent);
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.scene.active .edu-timeline::before {
+  animation: lineTravel 1.3s ease 0.25s both;
+}
+
+.scene.active .edu-connector {
+  animation: fadeUp 0.5s ease both;
+}
+
+.scene.active .edu-connector:nth-child(2) { animation-delay: 0.65s; }
+.scene.active .edu-connector:nth-child(4) { animation-delay: 0.95s; }
+.scene.active .edu-connector:nth-child(6) { animation-delay: 1.25s; }
+
 .edu-node {
   position: relative;
+  z-index: 1;
   padding: 1rem 1.3rem;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.76);
@@ -596,6 +670,37 @@ body.presentation-mode .video-stage {
   letter-spacing: 0.18rem;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+.skill-group h3::before {
+  content: "";
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin: 0 0.55rem 0.08rem 0;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  animation: iconPulse 2.4s ease-in-out infinite;
+}
+
+.scene.active .chip-row span {
+  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scene.active .chip-row span:nth-child(2) { animation-delay: 0.08s; }
+.scene.active .chip-row span:nth-child(3) { animation-delay: 0.16s; }
+.scene.active .chip-row span:nth-child(4) { animation-delay: 0.24s; }
+.scene.active .chip-row span:nth-child(5) { animation-delay: 0.32s; }
+.scene.active .chip-row span:nth-child(6) { animation-delay: 0.4s; }
+
+.chip-row span {
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.chip-row span:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  background: rgba(63, 126, 245, 0.12);
 }
 
 .chip-row {
@@ -743,6 +848,15 @@ body.presentation-mode .video-stage {
   display: block;
 }
 
+.shot-card {
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.shot-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 20px 38px rgba(59, 130, 246, 0.14);
+}
+
 .project-steps {
   display: grid;
   gap: 0.6rem;
@@ -758,7 +872,6 @@ body.presentation-mode .video-stage {
   white-space: nowrap;
   width: 0;
   max-width: 100%;
-  animation: typewriter 1.2s steps(24, end) forwards;
 }
 
 .project-steps .focus {
@@ -964,6 +1077,10 @@ body.presentation-mode .video-stage {
   font-size: 1.6rem;
 }
 
+.scene.active .vision-arrow {
+  animation: fadeUp 0.6s ease both;
+}
+
 .vision-note {
   max-width: 760px;
   margin-top: 1.6rem;
@@ -1107,6 +1224,16 @@ body.presentation-mode .video-stage {
 #timelineRange {
   width: min(40vw, 440px);
   accent-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media (max-width: 980px) {

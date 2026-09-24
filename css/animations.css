@@ -149,3 +149,63 @@
     filter: blur(0);
   }
 }
+
+@keyframes hookPhrase {
+  0%, 12% {
+    opacity: 0;
+    transform: translateY(18px);
+    clip-path: inset(0 100% 0 0);
+  }
+  28%, 72% {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+  88%, 100% {
+    opacity: 0;
+    transform: translateY(-18px);
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+@keyframes cameraDrift {
+  0% {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(-1.2%, -0.8%, 0);
+  }
+}
+
+@keyframes lineTravel {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes sectionWipe {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.8;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 0;
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(63, 126, 245, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(63, 126, 245, 0.22);
+  }
+}
