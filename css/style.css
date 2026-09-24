@@ -157,6 +157,49 @@ body.presentation-mode .video-stage {
   animation-name: cardLift;
 }
 
+.scene.active .stat-box,
+.scene.active .shot-card,
+.scene.active .project-steps span {
+  animation: popIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scene.active .project-steps p {
+  animation-name: typewriter;
+  animation-duration: 1.2s;
+  animation-timing-function: steps(24, end);
+  animation-fill-mode: forwards;
+}
+
+.scene.active .chart-bars span {
+  animation-name: riseBar;
+  animation-duration: 0.8s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+}
+
+.scene.active .typed-line-1 { animation-delay: 0.15s; }
+.scene.active .typed-line-2 { animation-delay: 0.45s; }
+.scene.active .typed-line-3 { animation-delay: 0.75s; }
+.scene.active .stat-box-1 { animation-delay: 0.15s; }
+.scene.active .stat-box-2 { animation-delay: 0.3s; }
+.scene.active .stat-box-3 { animation-delay: 0.45s; }
+.scene.active .bar-1 { animation-delay: 0.2s; }
+.scene.active .bar-2 { animation-delay: 0.35s; }
+.scene.active .bar-3 { animation-delay: 0.5s; }
+.scene.active .bar-4 { animation-delay: 0.65s; }
+.scene.active .bar-5 { animation-delay: 0.8s; }
+.scene.active .shot-card-1 { animation-delay: 0.2s; }
+.scene.active .shot-card-2 { animation-delay: 0.35s; }
+.scene.active .shot-card-3 { animation-delay: 0.5s; }
+.scene.active .dashboard-content aside span {
+  animation: slideInLeft 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.scene.active .dashboard-content aside span:nth-child(2) { animation-delay: 0.12s; }
+.scene.active .dashboard-content aside span:nth-child(3) { animation-delay: 0.2s; }
+.scene.active .dashboard-content aside span:nth-child(4) { animation-delay: 0.28s; }
+.scene.active .dashboard-content aside span:nth-child(5) { animation-delay: 0.36s; }
+.scene.active .dashboard-content aside span:nth-child(6) { animation-delay: 0.44s; }
+
 .scene.active .journey-card:nth-child(2) { animation-delay: 0.08s; }
 .scene.active .journey-card:nth-child(3) { animation-delay: 0.14s; }
 .scene.active .journey-card:nth-child(4) { animation-delay: 0.2s; }
@@ -687,12 +730,17 @@ body.presentation-mode .video-stage {
   display: grid;
   place-items: center;
   min-height: 180px;
+  height: 220px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.72);
 }
 
 .shot-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 18px;
+  display: block;
 }
 
 .project-steps {
@@ -705,12 +753,22 @@ body.presentation-mode .video-stage {
   margin: 0;
   font-size: clamp(1.1rem, 1.5vw, 1.6rem);
   color: var(--muted);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  max-width: 100%;
+  animation: typewriter 1.2s steps(24, end) forwards;
 }
 
 .project-steps .focus {
   color: var(--accent);
   font-weight: 700;
 }
+
+.typed-line-1 { animation-delay: 0.1s; }
+.typed-line-2 { animation-delay: 0.5s; }
+.typed-line-3 { animation-delay: 0.9s; }
 
 .dashboard-panel {
   border: 1px solid var(--line);
@@ -807,6 +865,8 @@ body.presentation-mode .video-stage {
   border-radius: 8px 8px 0 0;
   background: linear-gradient(180deg, var(--accent), var(--accent-3));
   box-shadow: 0 0 18px rgba(63, 126, 245, 0.2);
+  transform-origin: bottom center;
+  animation: riseBar 0.8s ease both;
 }
 
 .activity-collage {
