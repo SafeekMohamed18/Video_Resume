@@ -352,12 +352,140 @@ body.presentation-mode .video-stage {
   align-items: center;
 }
 
+.profile-showcase {
+  display: grid;
+  grid-template-columns: 220px 1fr 230px;
+  align-items: center;
+  gap: 1.2rem;
+  width: min(1150px, 90%);
+  margin-top: 2rem;
+}
+
+.profile-photo-frame,
+.school-brand,
+.identity-card,
+.shot-card {
+  position: relative;
+  border: 1px solid rgba(63, 126, 245, 0.14);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 22px;
+  box-shadow: 0 16px 32px rgba(59, 130, 246, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.profile-photo-frame,
+.school-brand {
+  display: grid;
+  place-items: center;
+  min-height: 210px;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.profile-photo-frame img,
+.school-brand img,
+.shot-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.profile-photo-frame span,
+.school-brand span,
+.shot-card span {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(9, 17, 32, 0.58);
+  color: #edf6ff;
+  font-size: 0.62rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+}
+
+.profile-photo-frame.image-missing,
+.school-brand.image-missing,
+.shot-card.image-missing {
+  background: linear-gradient(135deg, rgba(63, 126, 245, 0.1), rgba(54, 196, 184, 0.12));
+}
+
+.profile-photo-frame.image-missing::before,
+.school-brand.image-missing::before,
+.shot-card.image-missing::before {
+  content: "Add image";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.74rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.identity-card {
+  padding: 1.35rem 1.3rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(63, 126, 245, 0.08);
+  color: var(--accent);
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.identity-card h3 {
+  margin: 0.9rem 0 0.5rem;
+  font-size: clamp(1.6rem, 2vw, 2.3rem);
+  color: var(--text);
+}
+
+.identity-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.mini-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.mini-badges span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0.42rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(63, 126, 245, 0.12);
+  background: rgba(63, 126, 245, 0.04);
+  color: var(--text);
+  font-size: 0.7rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+}
+
 .journey-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(160px, 1fr));
   gap: 1.25rem;
   width: min(1100px, 90%);
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .journey-card {
@@ -580,6 +708,27 @@ body.presentation-mode .video-stage {
   gap: 1.6rem;
   width: min(1160px, 92%);
   margin-top: 1.5rem;
+}
+
+.project-shot-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  gap: 1rem;
+  width: min(1100px, 90%);
+  margin-top: 1.5rem;
+}
+
+.shot-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.shot-card img {
+  border-radius: 18px;
 }
 
 .project-steps {
@@ -937,10 +1086,16 @@ body.presentation-mode .video-stage {
 }
 
 @media (max-width: 980px) {
+  .profile-showcase {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
   .journey-grid,
   .skill-grid,
   .activity-collage,
-  .experience-metrics {
+  .experience-metrics,
+  .project-shot-grid {
     grid-template-columns: repeat(2, minmax(180px, 1fr));
   }
 
@@ -993,7 +1148,8 @@ body.presentation-mode .video-stage {
   .journey-grid,
   .skill-grid,
   .activity-collage,
-  .experience-metrics {
+  .experience-metrics,
+  .project-shot-grid {
     grid-template-columns: 1fr;
   }
 
