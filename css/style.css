@@ -98,8 +98,7 @@ body.presentation-mode .video-stage {
   display: none;
   opacity: 0;
   transform: scale(1.04);
-  filter: blur(3px);
-  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), filter 0.9s ease;
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .scene::before {
@@ -115,7 +114,6 @@ body.presentation-mode .video-stage {
   display: block;
   opacity: 1;
   transform: scale(1);
-  filter: blur(0);
 }
 
 .scene-content {
@@ -185,39 +183,6 @@ body.presentation-mode .video-stage {
   mix-blend-mode: multiply;
 }
 
-.cinematic-popup {
-  position: absolute;
-  z-index: 4;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  background: rgba(9, 17, 32, 0.2);
-  color: #eaf4ff;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.18rem;
-  text-transform: uppercase;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 20px 45px rgba(18, 31, 60, 0.18);
-  opacity: 0;
-  animation: cinematicPopup 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: var(--delay, 0s);
-  left: var(--left, 50%);
-  top: var(--top, 50%);
-}
-
-.cinematic-popup::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(135deg, rgba(63, 126, 245, 0.32), rgba(54, 196, 184, 0.18), rgba(143, 116, 255, 0.25));
-  z-index: -1;
-}
-
 .section-label,
 .eyebrow {
   position: absolute;
@@ -225,12 +190,11 @@ body.presentation-mode .video-stage {
   left: 8%;
   padding: 0.65rem 1rem;
   border: 1px solid rgba(63, 126, 245, 0.14);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--accent);
   font-size: 0.72rem;
   letter-spacing: 0.22rem;
   text-transform: uppercase;
-  backdrop-filter: blur(10px);
   box-shadow: 0 12px 30px rgba(63, 126, 245, 0.08);
 }
 

@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="700" height="300" viewBox="0 0 700 300">
-  <rect width="700" height="300" rx="28" fill="#f3f8ff"/>
-  <rect x="70" y="45" width="180" height="180" rx="24" fill="#4e7df7"/>
-  <path d="M160 80L235 120L160 160L85 120L160 80Z" fill="#eaf4ff"/>
-  <path d="M120 130L160 150L200 130V170L160 192L120 170V130Z" fill="#dfeeff"/>
-  <text x="290" y="130" font-family="Arial, Helvetica, sans-serif" font-size="40" fill="#1c3151" font-weight="700">University</text>
-  <text x="290" y="180" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#5a6b84" font-weight="600">Logo / Badge</text>
-</svg>

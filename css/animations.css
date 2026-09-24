@@ -87,23 +87,6 @@
   }
 }
 
-@keyframes cinematicPopup {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 28px, 0) scale(0.8) rotate(-6deg);
-    filter: blur(10px);
-  }
-  25% {
-    opacity: 1;
-    filter: blur(0);
-  }
-  100% {
-    opacity: 0.9;
-    transform: translate3d(var(--drift, 0px), -12px, 0) scale(1) rotate(0deg);
-    filter: blur(0);
-  }
-}
-
 @keyframes cardLift {
   0% {
     opacity: 0;
